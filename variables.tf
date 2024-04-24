@@ -15,3 +15,12 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
+variable "terraform_organization" {
+  description = "Terraform organization"
+  type        = string
+}
+
+variable "terraform_workspace" {
+  description = "Terraform workspace"
+  type        = string
+}
