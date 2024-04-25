@@ -143,7 +143,7 @@ resource "aws_autoscaling_group" "auth_server_service" {
   # Define tag for ECS managed to prevent terraform from removing it.
   tag {
     key                 = "AmazonECSManaged"
-    value               = true
+    value               = ""
     propagate_at_launch = true
   }
 }
