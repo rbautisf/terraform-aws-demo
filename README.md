@@ -1,3 +1,7 @@
+# Getting Started
+
+This is a sample project demonstrating the use of Terraform Cloud and AWS as the provider.
+
 # Terraform AWS Infrastructure
 
 This project contains the Terraform scripts for setting up the AWS infrastructure for the NowhereLearn Authorization Server application. The infrastructure includes a VPC, ECS cluster, RDS instance, ElastiCache Redis instance, and an Application Load Balancer.
