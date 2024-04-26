@@ -116,7 +116,7 @@ variable "instance_warmup_period" {
 }
 variable "maximum_scaling_step_size" {
   description = " Maximum step adjustment size. A number between 1 and 10,000."
-  default     = 5
+  default     = 3
   type        = number
 }
 

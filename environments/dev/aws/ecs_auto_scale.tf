@@ -12,17 +12,6 @@ resource "aws_launch_template" "ecs_launch_template_x86_64" {
     http_endpoint               = "enabled"
     http_tokens                 = "required"
     http_put_response_hop_limit = 1
-    instance_metadata_tags      = "enabled"
-  }
-
-  block_device_mappings {
-    device_name = "/dev/sda1"
-
-    ebs {
-      volume_size           = 10
-      volume_type           = "gp2"
-      delete_on_termination = true
-    }
   }
 
   iam_instance_profile {
@@ -101,11 +90,13 @@ resource "aws_appautoscaling_policy" "ecs_memory_policy_auth_server_service" {
 resource "aws_autoscaling_group" "auth_server_service" {
   name             = "auth-server-service-asg-${var.env}"
   max_size         = 6
-  min_size         = 2
+  min_size         = 1
   desired_capacity = 2
+
   # List of subnet IDs to launch resources in.
   vpc_zone_identifier = aws_subnet.private.*.id
   health_check_type   = "EC2"
+  health_check_grace_period = 300
   # Capacity provider must set managed_termination_protection as Enabled
   protect_from_scale_in = true
   enabled_metrics = [

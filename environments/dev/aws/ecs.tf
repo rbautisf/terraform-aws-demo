@@ -138,8 +138,8 @@ resource "aws_ecs_service" "auth-server" {
   }
 
   capacity_provider_strategy {
-    base              = 1 # minimum number of tasks to run
-    weight            = 1 # share with other capacity providers
+    base              = 2 # minimum number of tasks to run
+    weight            = 0 # share with other capacity providers
     capacity_provider = aws_ecs_capacity_provider.auth_server_group.name
   }
 
